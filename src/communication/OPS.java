@@ -10,5 +10,10 @@ public enum OPS {
     ENDEDIT,
     // OPS per le risposte
     OK,
-    ALREADYEXISTS
+    ALREADYEXISTS,
+    NOSUCHFILE,
+    NOSUCHUSER,
+    ERROR,
+    ALREADYINEDITING,
+    CREATEASSOCIATION
 }

@@ -1,7 +1,7 @@
+import exception.AlreadyLoggedIn;
+import exception.NotAuthorized;
 import exception.UserNotRegistered;
 import exception.UsernameAlreadyRegistered;
-
-import java.net.SocketAddress;
 import java.rmi.RemoteException;
 import java.rmi.server.RemoteServer;
 import java.util.concurrent.ConcurrentHashMap;
@@ -29,18 +29,26 @@ public class UsersHandler extends RemoteServer implements UsersService {
     }
 
     @Override
-    public void login(String username, String password) throws UserNotRegistered, NotAuthorized, RemoteException {
+    public void login(String username, String password) throws UserNotRegistered, NotAuthorized, AlreadyLoggedIn, RemoteException {
         User u;
         if((u = this.getUser(username)) == null){
             throw new UserNotRegistered();
         }else if(!u.getPassword().equals(password)){
             throw new NotAuthorized();
+        }else if(u.isLogged()){
+            throw new AlreadyLoggedIn();
         }
+        u.setLogged(true);
     }
 
     @Override
     public void logout(String username) throws RemoteException {
-        this.getUser(username).setAddress(null);
+        this.getUser(username).setLogged(false);
+    }
+
+    @Override
+    public void emptyInvitations(String username) throws RemoteException {
+        this.getUser(username).getInvitations().clear();
     }
 
 }

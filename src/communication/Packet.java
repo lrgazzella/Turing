@@ -1,7 +1,5 @@
 package communication;
 
-import communication.Body.Body;
-
 public class Packet {
 
     private Header header;

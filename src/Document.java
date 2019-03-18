@@ -1,18 +1,19 @@
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Document {
+public class Document implements Serializable {
 
     private String name;
     private ArrayList<Section> sections;
     private User owner;
     private ArrayList<User> collaborators;
-    private int portNumber; // used to create a Multicast UDP TODO
-    private Path path;
+    private int portNumber;
+    private transient Path path;
 
-    public Document(Path path, String documentName, int sectionNumber, User owner) throws IOException {
+    public Document(Path path, String documentName, int sectionNumber, User owner, int port) throws IOException {
         this.path = path;
         this.name = documentName;
         this.path.toFile().mkdir();
@@ -23,8 +24,8 @@ public class Document {
         }
         this.collaborators = new ArrayList<>();
         this.owner = owner;
+        this.portNumber = port;
     }
-
 
     public String getName() {
         return name;
@@ -64,5 +65,29 @@ public class Document {
 
     public void setPortNumber(int portNumber) {
         this.portNumber = portNumber;
+    }
+
+    public void addCollaborator(User u){
+        this.collaborators.add(u);
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path = path;
+    }
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "name='" + name + '\'' +
+                ", sections=" + sections +
+                ", owner=" + owner +
+                ", collaborators=" + collaborators +
+                ", portNumber=" + portNumber +
+                ", path=" + path +
+                '}';
     }
 }
