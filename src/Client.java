@@ -356,6 +356,7 @@ public class Client {
             usersServer.logout(this.currentUser.getUsername());
             this.currentUser = null;
             this.state = STATE.STARTED;
+            this.ih.interrupt();
             System.out.println("Logout eseguito con successo.");
         }catch (NotBoundException | RemoteException ex) {
             System.out.println("Si è verificato un errore. Riprova.");

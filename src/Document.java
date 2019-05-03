@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Document implements Serializable {
+public class Document  { // TODO guardare se deve estendere Serializable
 
     private String name;
     private ArrayList<Section> sections;
