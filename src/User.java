@@ -1,7 +1,5 @@
 import java.io.Serializable;
-import java.net.SocketAddress;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class User implements Serializable {

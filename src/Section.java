@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.nio.file.Path;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Section { // Guardare se deve implementare Serializable. Semmai inserirlo nella documentazione
+public class Section implements Serializable{ // TODO Inserire nella documentazione che è serializable
 
     private ReentrantLock lock;
     private Boolean inEditing;

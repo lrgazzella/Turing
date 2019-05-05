@@ -65,7 +65,11 @@ public class Client {
             System.out.println("$: ");
             String command = keyboard.nextLine();
             String [] commandList = command.split(" ");
-            if(commandList[0].equals("exit")) break;
+            if(commandList[0].equals("exit")){
+                if(this.state == STATE.EDIT) this.handleEndEdit();
+                if(this.state == STATE.LOGGED) this.handleLogout();
+                break;
+            }
             handleCommand(commandList);
         }
 
@@ -232,7 +236,7 @@ public class Client {
             this.state = STATE.LOGGED;
             this.inEditing.delete();
             this.inEditing = null;
-            this.ch.interrupt();
+            this.ch.stopChat();
             System.out.println("Sezione " + this.sectionNumberInEditing + " del documento " + this.documentNameInEditng + " aggiornata con successo");
             this.documentNameInEditng = null;
             this.sectionNumberInEditing = null;

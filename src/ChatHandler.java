@@ -96,9 +96,7 @@ public class ChatHandler extends Thread {
             try {
                 ms.receive(packet);
                 this.history.add(Message.fromBytesToMessage(packet.getData()));
-            } catch (IOException e) {
-                Thread.currentThread().interrupt();
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 Thread.currentThread().interrupt();
             }
         }
@@ -116,6 +114,16 @@ public class ChatHandler extends Thread {
             System.out.println(formatter.format(m.getDate()) + " " + m.getUsername() + ": " + m.getText());
         }
         this.history.clear();
+    }
+
+    public void stopChat() {
+        this.interrupt();
+        try {
+            this.ms.leaveGroup(this.group);
+            this.ms.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
