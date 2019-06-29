@@ -1,3 +1,5 @@
+package turing;
+
 import exception.AlreadyLoggedIn;
 import exception.NotAuthorized;
 import exception.UserNotRegistered;

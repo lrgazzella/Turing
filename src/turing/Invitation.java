@@ -1,3 +1,5 @@
+package turing;
+
 import java.io.Serializable;
 
 public class Invitation implements Serializable {

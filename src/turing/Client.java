@@ -1,3 +1,5 @@
+package turing;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import communication.*;
@@ -37,7 +39,7 @@ public class Client {
     public static void main(String[] args){
         try{
             if(args.length != 1){
-                usage();
+                System.out.println("usage: client basepath");
                 return;
             }
             new Client(args[0]).startClient();
@@ -60,7 +62,7 @@ public class Client {
 
     public void startClient() throws IOException, ClassNotFoundException {
         Scanner keyboard = new Scanner(System.in);
-
+        usage();
         while(true){
             System.out.println("$: ");
             String command = keyboard.nextLine();
@@ -270,8 +272,8 @@ public class Client {
         Packet pkt = Communication.read(this.socketChannel);
 
         if(pkt.getHeader().getOp() == OPS.OK){
-            ArrayList<ListMeber> list = new Gson().fromJson(pkt.getBody().getOther(), new TypeToken<ArrayList<ListMeber>>(){}.getType());
-            for(ListMeber m: list){
+            ArrayList<ListMember> list = new Gson().fromJson(pkt.getBody().getOther(), new TypeToken<ArrayList<ListMember>>(){}.getType());
+            for(ListMember m: list){
                 System.out.println(m.getDocumentName() + ": ");
                 System.out.println("  Creatore: " + m.getOwner());
                 Iterator i = m.getCollaborators().iterator();

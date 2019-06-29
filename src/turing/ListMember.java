@@ -1,12 +1,14 @@
+package turing;
+
 import java.util.ArrayList;
 
-public class ListMeber {
+public class ListMember {
 
     private String documentName;
     private String owner;
     private ArrayList<String> collaborators;
 
-    public ListMeber(String documentName, String owner, ArrayList<String> collaborators) {
+    public ListMember(String documentName, String owner, ArrayList<String> collaborators) {
         this.documentName = documentName;
         this.owner = owner;
         this.collaborators = collaborators;

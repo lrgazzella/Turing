@@ -1,3 +1,5 @@
+package turing;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
@@ -5,10 +7,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class User implements Serializable {
 
     private String username;
-    private /*transient*/ String password;
-    private /*transient*/ ConcurrentHashMap<String, Document> ownedDocs;
-    private /*transient*/ ConcurrentHashMap<String, Document> collaborationDocs;
-    private /*transient*/ ArrayList<Invitation> invitations;
+    private String password;
+    private ConcurrentHashMap<String, Document> ownedDocs;
+    private ConcurrentHashMap<String, Document> collaborationDocs;
+    private ArrayList<Invitation> invitations;
     private boolean logged;
 
     public User(String username, String password) {
@@ -81,7 +83,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Prima controlla gli owned e poi i collaboration ma tanto è la stessa cosa
+     * Prima controlla gli owned e poi i collaboration
      * */
     public Document getDocument(String documentName){
         Document d = this.ownedDocs.get(documentName);

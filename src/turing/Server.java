@@ -1,3 +1,5 @@
+package turing;
+
 import com.google.gson.Gson;
 import communication.*;
 
@@ -38,7 +40,21 @@ public class Server {
         try{
             new Server(args[0]).startServer();
         } catch(RemoteException e){
-            e.printStackTrace();
+            System.out.println("AA");
+        } catch(NoClassDefFoundError e){
+            printStackTrace(e);
+        }
+    }
+
+    public static void printStackTrace(Throwable t) {
+        System.out.println(t);
+        for (StackTraceElement ste : t.getStackTrace()) {
+            System.out.println("\tat " + ste);
+        }
+        Throwable cause = t.getCause();
+        if (cause != null) {
+            System.out.print("Caused by ");
+            printStackTrace(cause);
         }
     }
 
@@ -169,7 +185,7 @@ public class Server {
     }
 
     private String buildListString(User u){
-        ArrayList<ListMeber> list = new ArrayList<>();
+        ArrayList<ListMember> list = new ArrayList<>();
         ArrayList<Document> docs = new ArrayList<>();
         docs.addAll(u.getOwnedDocs().values());
         docs.addAll(u.getCollaborationDocs().values());
@@ -177,7 +193,7 @@ public class Server {
             ArrayList<String> collaborators = new ArrayList<>();
             for(User collaborator: d.getCollaborators())
                 collaborators.add(collaborator.getUsername());
-            list.add(new ListMeber(d.getName(), d.getOwner().getUsername(), collaborators));
+            list.add(new ListMember(d.getName(), d.getOwner().getUsername(), collaborators));
         }
         return new Gson().toJson(list);
     }

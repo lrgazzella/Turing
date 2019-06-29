@@ -1,8 +1,11 @@
+package turing;
+
 import exception.AlreadyLoggedIn;
 import exception.NotAuthorized;
 import exception.UserNotRegistered;
 import exception.UsernameAlreadyRegistered;
 import java.rmi.RemoteException;
+import java.rmi.server.RemoteRef;
 import java.rmi.server.RemoteServer;
 import java.util.concurrent.ConcurrentHashMap;
 
