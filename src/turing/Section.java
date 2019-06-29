@@ -6,17 +6,17 @@ import java.io.Serializable;
 import java.nio.file.Path;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Section implements Serializable{ // TODO Inserire nella documentazione che è serializable
+public class Section implements Serializable{ // Poichè dovrà essere inviato, implementa la classe Serializable
 
     private ReentrantLock lock;
     private Boolean inEditing;
-    private transient Path path;
+    private transient Path path; // transient per evitare che venga spedito ed esposto il file system
 
     public Section(Path path) throws IOException {
         this.lock = new ReentrantLock();
         this.inEditing = false;
         this.path = path;
-        new File(this.path.toString()).createNewFile();
+        new File(this.path.toString()).createNewFile(); // Crea la sezione su disco
     }
 
     public ReentrantLock getLock() {

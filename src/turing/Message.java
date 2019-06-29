@@ -3,7 +3,7 @@ package turing;
 import java.io.*;
 import java.util.Date;
 
-public class Message implements Serializable{
+public class Message implements Serializable{ // Poichè dovrà essere inviato, implementa la classe Serializable
 
     private String username;
     private String text;
@@ -15,14 +15,14 @@ public class Message implements Serializable{
         this.date = date;
     }
 
-    public static byte[] fromMessageToBytes(Message m) throws IOException {
+    public static byte[] fromMessageToBytes(Message m) throws IOException { // Metodo che converte un Message in un array di byte
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         ObjectOutputStream objStream = new ObjectOutputStream(byteStream);
         objStream.writeObject(m);
         return byteStream.toByteArray();
     }
 
-    public static Message fromBytesToMessage(byte[] bytes) throws IOException, ClassNotFoundException {
+    public static Message fromBytesToMessage(byte[] bytes) throws IOException, ClassNotFoundException { // Metodo che converte un array di byte in un Message
         ByteArrayInputStream byteStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objStream = new ObjectInputStream(byteStream);
         return (Message) objStream.readObject();

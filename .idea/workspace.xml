@@ -3,32 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="02d1ab80-e8aa-4c30-a1a7-1b4a308ff780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/ChatHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Client$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Client$STATE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Document.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Invitation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/InviteHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/ListMeber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Section.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/UsersHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TURING/UsersService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/ChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Document.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Invitation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InviteHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListMember.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Section.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UsersHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UsersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/communication/Communication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/Communication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/ChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/ChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/Invitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Invitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/InviteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/InviteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/UsersHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/UsersHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/turing/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/UsersService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +22,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/turing/InviteHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,6 +74,7 @@
       <find>usage</find>
       <find>User</find>
       <find>handleReq</find>
+      <find>array</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,7 +103,6 @@
         <option value="$PROJECT_DIR$/src/communication/Packet.java" />
         <option value="$PROJECT_DIR$/src/exception/NotAuthorized.java" />
         <option value="$PROJECT_DIR$/src/Invitation.java" />
-        <option value="$PROJECT_DIR$/src/communication/Body.java" />
         <option value="$PROJECT_DIR$/../TURINGv1.0/src/turing/Client.java" />
         <option value="$PROJECT_DIR$/src/List.java" />
         <option value="$PROJECT_DIR$/src/ListMeber.java" />
@@ -117,7 +111,6 @@
         <option value="$USER_HOME$/AppData/Local/Temp/Rar$DIa10540.25334/ChatRoomClient.java" />
         <option value="$PROJECT_DIR$/src/communication/OPS.java" />
         <option value="$USER_HOME$/AppData/Local/Temp/Rar$DIa8128.404/ChatMulticastReceiver.java" />
-        <option value="$PROJECT_DIR$/src/communication/Communication.java" />
         <option value="$PROJECT_DIR$/src/InviteHandler.java" />
         <option value="$PROJECT_DIR$/src/UsersService.java" />
         <option value="$PROJECT_DIR$/src/exception/AlreadyLoggedIn.java" />
@@ -128,17 +121,19 @@
         <option value="$PROJECT_DIR$/src/Document.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/ChatHandler.java" />
-        <option value="$PROJECT_DIR$/src/turing/ChatHandler.java" />
+        <option value="$PROJECT_DIR$/src/turing/ListMember.java" />
+        <option value="$PROJECT_DIR$/src/turing/Server.java" />
         <option value="$PROJECT_DIR$/src/turing/Document.java" />
         <option value="$PROJECT_DIR$/src/turing/Invitation.java" />
-        <option value="$PROJECT_DIR$/src/turing/InviteHandler.java" />
-        <option value="$PROJECT_DIR$/src/turing/ListMember.java" />
         <option value="$PROJECT_DIR$/src/turing/Message.java" />
         <option value="$PROJECT_DIR$/src/turing/Section.java" />
-        <option value="$PROJECT_DIR$/src/turing/UsersService.java" />
-        <option value="$PROJECT_DIR$/src/turing/Server.java" />
+        <option value="$PROJECT_DIR$/src/communication/Body.java" />
+        <option value="$PROJECT_DIR$/src/communication/Communication.java" />
+        <option value="$PROJECT_DIR$/src/turing/ChatHandler.java" />
         <option value="$PROJECT_DIR$/src/turing/User.java" />
+        <option value="$PROJECT_DIR$/src/turing/UsersService.java" />
         <option value="$PROJECT_DIR$/src/turing/UsersHandler.java" />
+        <option value="$PROJECT_DIR$/src/turing/InviteHandler.java" />
       </list>
     </option>
   </component>
@@ -166,12 +161,6 @@
               <item name="TURING" type="b2602c69:ProjectViewProjectNode" />
               <item name="TURING" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TURING" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TURING" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="communication" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TURING" type="b2602c69:ProjectViewProjectNode" />
@@ -279,12 +268,12 @@
       <workItem from="1561707131020" duration="2471000" />
       <workItem from="1561711155726" duration="599000" />
       <workItem from="1561713460026" duration="5093000" />
-      <workItem from="1561837509504" duration="383000" />
+      <workItem from="1561837509504" duration="3877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146277000" />
+    <option name="totallyTimeSpent" value="149771000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -297,8 +286,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28441754" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2344932" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -330,7 +320,7 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24886535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28441754" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -339,7 +329,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.32733223" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.2667758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -366,7 +356,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10540.47915/ChatRoomServer.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10540.47859/ChatRoomClient.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa10540.47762/ChatMulticastReceiver.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa5540.44675/ChatRoomClient.java" />
@@ -414,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/NotAuthorized.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UsersService.java" />
     <entry file="file://$PROJECT_DIR$/src/UsersHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/ListMember.java" />
@@ -442,61 +424,9 @@
     <entry file="file://$PROJECT_DIR$/src/User.java" />
     <entry file="file://$PROJECT_DIR$/src/Section.java" />
     <entry file="file://$PROJECT_DIR$/src/Document.java" />
-    <entry file="file://$PROJECT_DIR$/src/communication/Body.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/communication/Packet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Invitation.java" />
     <entry file="file://$PROJECT_DIR$/src/Server.java" />
     <entry file="file://$PROJECT_DIR$/src/InviteHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/exception/AlreadyLoggedIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Invitation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.rmi/java/rmi/server/RemoteServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -519,17 +449,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/InviteHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/communication/OPS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="340">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/turing/ListMember.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Invitation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="115" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/communication/Body.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-377">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/communication/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/communication/Communication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="85" column="72" selection-start-line="85" selection-start-column="72" selection-end-line="85" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#send#0;class#Communication#0" />
+            <element signature="method#read#0;class#Communication#0" />
+            <element signature="method#read#1;class#Communication#0" />
+            <element signature="method#send#1;class#Communication#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/communication/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" column="101" selection-start-line="12" selection-start-column="101" selection-end-line="12" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="111" lean-forward="true" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/AlreadyLoggedIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/NotAuthorized.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -555,17 +565,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/communication/OPS.java">
+    <entry file="file://$PROJECT_DIR$/src/turing/UsersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="80">
+          <caret line="10" column="107" selection-start-line="10" selection-start-column="107" selection-end-line="10" selection-end-column="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/turing/UsersHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
+        <state relative-caret-position="120">
+          <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
           <folding>
             <element signature="e#467#468#0" expanded="true" />
             <element signature="e#521#522#0" expanded="true" />
@@ -573,39 +583,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/communication/Communication.java">
+    <entry file="file://$PROJECT_DIR$/src/turing/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#send#1;class#Communication#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/UsersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="320">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/turing/ChatHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="383">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ChatHandler#0;class#ChatHandler#0" />
+            <element signature="method#run#0;class#ChatHandler#0" />
+            <element signature="method#sendMessage#0;class#ChatHandler#0" />
             <element signature="method#printReveivedMessage#0;class#ChatHandler#0" />
+            <element signature="method#stopChat#0;class#ChatHandler#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/User.java">
+    <entry file="file://$PROJECT_DIR$/src/turing/InviteHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="85" column="54" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
+        <state relative-caret-position="240">
+          <caret line="22" column="96" selection-start-line="22" selection-start-column="96" selection-end-line="22" selection-end-column="96" />
         </state>
       </provider>
     </entry>

@@ -30,8 +30,8 @@ public class ChatHandler extends Thread {
         while (!Thread.currentThread().isInterrupted()) {
             DatagramPacket packet = new DatagramPacket (buf, buf.length);
             try {
-                ms.receive(packet);
-                this.history.add(Message.fromBytesToMessage(packet.getData()));
+                ms.receive(packet); // Rimango in ascolto di un messaggio
+                this.history.add(Message.fromBytesToMessage(packet.getData())); // Quando arriva un messaggio lo aggiungo alla history
             } catch (IOException | ClassNotFoundException e) {
                 Thread.currentThread().interrupt();
             }

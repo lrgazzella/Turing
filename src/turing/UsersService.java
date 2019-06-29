@@ -8,7 +8,7 @@ import exception.UsernameAlreadyRegistered;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface UsersService extends Remote {
+public interface UsersService extends Remote { // Classe che definisce tutti i metodi accessibili da remoto
 
     public void register(User u) throws UsernameAlreadyRegistered, RemoteException;
     public User getUser(String username) throws RemoteException;

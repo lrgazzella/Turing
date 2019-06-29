@@ -2,6 +2,8 @@ package turing;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class User implements Serializable {
@@ -10,7 +12,7 @@ public class User implements Serializable {
     private String password;
     private ConcurrentHashMap<String, Document> ownedDocs;
     private ConcurrentHashMap<String, Document> collaborationDocs;
-    private ArrayList<Invitation> invitations;
+    private List<Invitation> invitations;
     private boolean logged;
 
     public User(String username, String password) {
@@ -18,7 +20,7 @@ public class User implements Serializable {
         this.password = password;
         this.ownedDocs = new ConcurrentHashMap<>();
         this.collaborationDocs = new ConcurrentHashMap<>();
-        this.invitations = new ArrayList<>();
+        this.invitations = Collections.synchronizedList(new ArrayList<>()); // E' stato deciso di rendere la lista degli inviti concorrente poichè viene modificata sia dal client che dal server
         this.logged = false;
     }
 
@@ -54,11 +56,11 @@ public class User implements Serializable {
         this.collaborationDocs = collaborationDocs;
     }
 
-    public ArrayList<Invitation> getInvitations() {
+    public List<Invitation> getInvitations() {
         return invitations;
     }
 
-    public void setInvitations(ArrayList<Invitation> invitations) {
+    public void setInvitations(List<Invitation> invitations) {
         this.invitations = invitations;
     }
 

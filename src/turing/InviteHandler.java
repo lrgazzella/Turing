@@ -19,8 +19,8 @@ public class InviteHandler extends Thread {
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                Packet pkt = Communication.read(c);
-                if (pkt.getHeader().getOp() == OPS.OK) {
+                Packet pkt = Communication.read(c); // Aspetto di ricevere un Packet, ovvero un invito
+                if (pkt.getHeader().getOp() == OPS.OK) { // Quando arriva lo comunico all'utente
                     System.out.println("  ---> " + pkt.getBody().getUsername() + " ti ha invitato a collaborare al documento: " + pkt.getBody().getDocumentName());
                 }
             } catch (IOException e) {
