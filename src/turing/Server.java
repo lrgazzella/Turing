@@ -96,7 +96,7 @@ public class Server {
                     } else if (key.isReadable()) {
                         handleRequest((SocketChannel)key.channel()); // Vuol dire che un client mi ha inviato una richiesta, allora passo a gestirla
                     } else if (key.isWritable()) {
-                        Communication.send((SocketChannel)key.channel(), (Packet) key.attachment()); // TODO
+                        Communication.send((SocketChannel)key.channel(), (Packet) key.attachment()); // Vuol dire che un client ha fatto una richiesta di SHARE e l'attachment è l'invito che devo mandare sul SocketChannel
                         ((SocketChannel)key.channel()).register(selector, 0);
                     }
                 } catch (Exception e) {
@@ -204,8 +204,8 @@ public class Server {
                     b.setUsername(u.getUsername());
                     Packet toAdd = new Packet(new Header(OPS.OK), b);
 
-                    SelectionKey newKey = this.usersChannel.get(collaborator).register(selector, SelectionKey.OP_WRITE);
-                    newKey.attach(toAdd);
+                    SelectionKey newKey = this.usersChannel.get(collaborator).register(selector, SelectionKey.OP_WRITE); // registro un canale in scrittura sul selector
+                    newKey.attach(toAdd); // Attacco l'invito al SocketChannel del client su cui vuole ricevere gli inviti
                 }
                 Communication.send(client, new Packet(new Header(OPS.OK), null)); // Comunico all'utente che ha condiviso il file che l'operazione è andata a buon fine
             }

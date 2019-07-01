@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Document implements Serializable { // TODO Inserire nella documentazione che è serializable
+public class Document implements Serializable {
 
     private String name;
     private ArrayList<Section> sections; // E' stato utilizzata un ArrayList poichè, una volta creata non verrà più modificata. Scegliere una classe thread safe sarebbe solamente stato meno efficiente
