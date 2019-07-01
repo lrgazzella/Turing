@@ -27,7 +27,7 @@ public class Server {
 
     private Path basePath;
     private UsersHandler handler;
-    private ConcurrentHashMap<User, SocketChannel> usersChannel; // Mantiene le associazioni l'utente e il suo SocketChannel in cui vuole ricevere gli inviti
+    private ConcurrentHashMap<User, SocketChannel> usersChannel; // Mantiene l'associazione tra il singolo client e il relativo SocketChannel su cui vuole ricevere gli inviti
     private Selector selector;
     private int nextPort;
 
@@ -38,23 +38,9 @@ public class Server {
         }
 
         try{
-            new Server(args[0]).startServer();
+            new Server(args[0]).startServer(); // Avvio il server
         } catch(RemoteException e){
-            System.out.println("AA");
-        } catch(NoClassDefFoundError e){
-            printStackTrace(e);
-        }
-    }
-
-    public static void printStackTrace(Throwable t) {
-        System.out.println(t);
-        for (StackTraceElement ste : t.getStackTrace()) {
-            System.out.println("\tat " + ste);
-        }
-        Throwable cause = t.getCause();
-        if (cause != null) {
-            System.out.print("Caused by ");
-            printStackTrace(cause);
+            e.printStackTrace();
         }
     }
 
@@ -63,8 +49,8 @@ public class Server {
         this.handler = new UsersHandler();
         this.selector = null;
         this.usersChannel = new ConcurrentHashMap();
-        this.nextPort = 1024;
-        Server.deleteFolder(this.basePath.toFile());
+        this.nextPort = 1024; // Prima porta disponibile da assegnare a un documento
+        Server.deleteFolder(this.basePath.toFile()); // Elimino tutto quello che conteneva la cartella basePath
     }
 
     public void startServer() throws RemoteException {
@@ -81,8 +67,8 @@ public class Server {
             serverSocketChannelInvitations.configureBlocking(false);
 
             selector = Selector.open();
-            serverSocketChannelCommunications.register(selector, SelectionKey.OP_ACCEPT);
-            serverSocketChannelInvitations.register(selector, SelectionKey.OP_ACCEPT);
+            serverSocketChannelCommunications.register(selector, SelectionKey.OP_ACCEPT); // Registro nella select il SocketChannel su cui riceverò messaggi
+            serverSocketChannelInvitations.register(selector, SelectionKey.OP_ACCEPT); // Registro nella select il SocketChannel che utilizzerò per mandare inviti
         } catch(IOException e){
             e.printStackTrace();
             return;
@@ -105,13 +91,12 @@ public class Server {
                     if (key.isAcceptable()) {
                         ServerSocketChannel server = (ServerSocketChannel) key.channel();
                         SocketChannel clientChannel = server.accept();
-                        System.out.println("Accepting connection from " + clientChannel);
                         clientChannel.configureBlocking(false);
-                        clientChannel.register(selector, SelectionKey.OP_READ);
+                        clientChannel.register(selector, SelectionKey.OP_READ); // Quando mi arriva una connessione da parte di un client, questa la registro sulla select con OP_READ
                     } else if (key.isReadable()) {
-                        handleRequest((SocketChannel)key.channel());
+                        handleRequest((SocketChannel)key.channel()); // Vuol dire che un client mi ha inviato una richiesta, allora passo a gestirla
                     } else if (key.isWritable()) {
-                        Communication.send((SocketChannel)key.channel(), (Packet) key.attachment());
+                        Communication.send((SocketChannel)key.channel(), (Packet) key.attachment()); // TODO
                         ((SocketChannel)key.channel()).register(selector, 0);
                     }
                 } catch (Exception e) {
@@ -142,7 +127,7 @@ public class Server {
             this.handleEdit(client, pkt);
         }else if(pkt.getHeader().getOp() == OPS.ENDEDIT){
             this.handleEndEdit(client, pkt);
-        }else if(pkt.getHeader().getOp() == OPS.CREATEASSOCIATION){
+        }else if(pkt.getHeader().getOp() == OPS.CREATEASSOCIATION){ // In questo caso il SocketChannel del client è quello su cui vorrà ricevere gli inviti
             this.usersChannel.put(this.handler.getUser(pkt.getBody().getUsername()), client);
             Communication.send(client, new Packet(new Header(OPS.OK), null));
         }
@@ -151,17 +136,17 @@ public class Server {
     private void handleEndEdit(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
         Document d = u.getDocument(p.getBody().getDocumentName());
-        Section s = d.getSections().get(p.getBody().getSectionNumber() - 1);
-        s.endedit();
+        Section s = d.getSections().get(p.getBody().getSectionNumber() - 1); // Prendo la sezione che stava modificando
         Communication.send(client, new Packet(new Header(OPS.OK), null));
-        Communication.read(client, s.getPath().toFile(), p.getBody().getBytesNumber());
+        Communication.read(client, s.getPath().toFile(), p.getBody().getBytesNumber()); // Leggo il file aggiornato
+        s.endedit(); // Chiamo la endedit() per dire che può essere modificata da altri utenti. La chiamo dopo aver ricevuto il file altrimento potrebbe succedere che un altro utente entra in modifica di un file non aggiornato
     }
 
     private void handleEdit(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
         Document d = u.getDocument(p.getBody().getDocumentName());
         if(d == null)
-            Communication.send(client, new Packet(new Header(OPS.NOSUCHFILE), null));
+            Communication.send(client, new Packet(new Header(OPS.NOSUCHFILE), null)); // L'utente stava cercando di modificare una sezione di un documento inesistente
         else {
             Section s = d.getSections().get(p.getBody().getSectionNumber() - 1);
             if(s.edit()){
@@ -169,8 +154,8 @@ public class Server {
                 b.setOther(String.valueOf(d.getPortNumber()));
                 b.setBytesNumber(s.getPath().toFile().length());
                 Communication.send(client, new Packet(new Header(OPS.OK), b));
-                Communication.send(client, s.getPath().toFile());
-            }else{
+                Communication.send(client, s.getPath().toFile()); // Invio la versione più aggiornata del file che vuole modificare
+            }else{ // Se s.edit() torna falso vuol dire che c'è già un altro utente che sta modificando questa sezione
                 Communication.send(client, new Packet(new Header(OPS.ALREADYINEDITING), null));
             }
         }
@@ -179,7 +164,7 @@ public class Server {
     private void handleList(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
         Body b = new Body();
-        b.setOther(this.buildListString(u));
+        b.setOther(this.buildListString(u)); // Creo la lista che voglio inviare e la invio
 
         Communication.send(client, new Packet(new Header(OPS.OK), b));
     }
@@ -202,18 +187,18 @@ public class Server {
         User u = this.handler.getUser(p.getBody().getUsername());
         User collaborator = this.handler.getUser(p.getBody().getCollaborator());
 
-        if(collaborator == null || u.equals(collaborator)){
+        if(collaborator == null || u.equals(collaborator)){ // Se non esiste alcun utente con quel username o se sta cercando di condividere un file con se stesso ritorno l'errore NOSUCHUSER
             Communication.send(client, new Packet(new Header(OPS.NOSUCHUSER), null));
         }else {
-            if (!u.isOwner(p.getBody().getDocumentName())) {
+            if (!u.isOwner(p.getBody().getDocumentName())) { // Se non sono l'owner di quel documento non posso condividerlo
                 Communication.send(client, new Packet(new Header(OPS.NOSUCHFILE), null));
             } else {
                 Document d = u.getOwnedDocs().get(p.getBody().getDocumentName());
-                d.addCollaborator(collaborator);
+                d.addCollaborator(collaborator); // Aggiungo l'utente ai collaboratori
                 collaborator.addCollaborationDoc(d);
-                if (!collaborator.isLogged()) { // utente non online -> aggiungo un invito alla sua lista di inviti non ancora visti
+                if (!collaborator.isLogged()) { // Se il collaboratore appena aggiunto non è online, aggiungo un invito alla sua lista di inviti pendenti
                     collaborator.addInvitation(new Invitation(u.getUsername(), p.getBody().getDocumentName()));
-                } else {
+                } else { // Altimenti glielo comunico subito tramite il SocketChannel salvato all'inizio
                     Body b = new Body();
                     b.setDocumentName(p.getBody().getDocumentName());
                     b.setUsername(u.getUsername());
@@ -222,18 +207,19 @@ public class Server {
                     SelectionKey newKey = this.usersChannel.get(collaborator).register(selector, SelectionKey.OP_WRITE);
                     newKey.attach(toAdd);
                 }
-                Communication.send(client, new Packet(new Header(OPS.OK), null));
+                Communication.send(client, new Packet(new Header(OPS.OK), null)); // Comunico all'utente che ha condiviso il file che l'operazione è andata a buon fine
             }
         }
     }
 
     private void handleCreate(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
-        if(u.hasDocument(p.getBody().getDocumentName())){
+        if(u.hasDocument(p.getBody().getDocumentName())){ // Se ha già un documento con quel nome
             Communication.send(client, new Packet(new Header(OPS.ALREADYEXISTS), null));
         }else{
+            // Creo il documento e lo aggiungo alla lista dei documenti di cui l'utente è owner
             u.addOwnedDoc(new Document(Paths.get(this.basePath.toString(), p.getBody().getDocumentName() + "_" + u.getUsername()), p.getBody().getDocumentName(), p.getBody().getSectionsNumber(), u, this.nextPort));
-            this.nextPort ++;
+            this.nextPort ++; // Aggiorno la nextPort
             Communication.send(client, new Packet(new Header(OPS.OK), null));
         }
     }
@@ -241,23 +227,23 @@ public class Server {
     private void handleShowDoc(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
         Document d = u.getDocument(p.getBody().getDocumentName());
-        if(d == null){
+        if(d == null){ // Se non c'è alcun documento con quel nome ritorno un messaggio di errore
             Communication.send(client, new Packet(new Header(OPS.NOSUCHFILE), null));
         }else{
-            File toSend = joinFiles(d);
+            File toSend = joinFiles(d); // Unisco tutte le sezioni di quel documento
             Body b = new Body();
             b.setBytesNumber(toSend.length());
-            b.setOther(new Gson().toJson(getSectionsInEditing(d)));
+            b.setOther(new Gson().toJson(getSectionsInEditing(d))); // Prendo la lista di tutte le sezioni in modifica
             Communication.send(client, new Packet(new Header(OPS.OK), b));
-            Communication.send(client, toSend);
-            toSend.delete();
+            Communication.send(client, toSend); // Lo invio
+            toSend.delete(); // Elimino il file temporaneo
         }
     }
 
     private void handleShowSec(SocketChannel client, Packet p) throws IOException {
         User u = this.handler.getUser(p.getBody().getUsername());
         Document d = u.getDocument(p.getBody().getDocumentName());
-        if(d == null || d.getSections().size() < p.getBody().getSectionNumber()){
+        if(d == null || d.getSections().size() < p.getBody().getSectionNumber()){ // Se non esiste un documento con quel nome o se sta cercando di scaricare una sezione che non esiste, ritorno un messaggio di errore
             Communication.send(client, new Packet(new Header(OPS.NOSUCHFILE), null));
         }else{
             Section s = d.getSections().get(p.getBody().getSectionNumber() - 1);
@@ -266,7 +252,7 @@ public class Server {
             b.setBytesNumber(toSend.length());
             b.setOther(new Gson().toJson(s.getInEditing()));
             Communication.send(client, new Packet(new Header(OPS.OK), b));
-            Communication.send(client, toSend);
+            Communication.send(client, toSend); // Invio il file
         }
     }
 
@@ -284,7 +270,7 @@ public class Server {
         Path pathNewFile = Paths.get(d.getPath().toString(), "tmp" + new Timestamp(System.currentTimeMillis()).getTime());
         File f = new File(pathNewFile.toString());
         f.createNewFile();
-        for (Section s : d.getSections()) {
+        for (Section s : d.getSections()) { // Ogni sezione la scrivo sul file temporaneo
             List<String> lines = Files.readAllLines(s.getPath(), StandardCharsets.UTF_8);
             Files.write(pathNewFile, lines, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         }

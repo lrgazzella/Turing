@@ -42,7 +42,7 @@ public class Client {
                 System.out.println("usage: client basepath");
                 return;
             }
-            new Client(args[0]).startClient();
+            new Client(args[0]).startClient(); // Avvio il client
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -67,7 +67,7 @@ public class Client {
             System.out.println("$: ");
             String command = keyboard.nextLine();
             String [] commandList = command.split(" ");
-            if(commandList[0].equals("exit")){
+            if(commandList[0].equals("exit")){ // Prima di terminare se ero in modifica di una sezione, chiamo la endEdit() e se ero loggato chiamo la logout()
                 if(this.state == STATE.EDIT) this.handleEndEdit();
                 if(this.state == STATE.LOGGED) this.handleLogout();
                 break;
@@ -231,14 +231,14 @@ public class Client {
         b.setSectionNumber(this.sectionNumberInEditing);
         b.setBytesNumber(this.inEditing.length());
 
-        Communication.send(this.socketChannel, new Packet(new Header(OPS.ENDEDIT), b));
-        Packet pkt = Communication.read(this.socketChannel);
+        Communication.send(this.socketChannel, new Packet(new Header(OPS.ENDEDIT), b)); // Invio la richiesta
+        Packet pkt = Communication.read(this.socketChannel); // Aspetto la risposta
         if(pkt.getHeader().getOp() == OPS.OK){
-            Communication.send(this.socketChannel, this.inEditing);
-            this.state = STATE.LOGGED;
-            this.inEditing.delete();
+            Communication.send(this.socketChannel, this.inEditing); // Nel caso che non ci sia stato alcun errore invio la sezione modificata
+            this.state = STATE.LOGGED; // cambio stato
+            this.inEditing.delete(); // elimino il file temporaneo (la sezione che stavo modificando)
             this.inEditing = null;
-            this.ch.stopChat();
+            this.ch.stopChat(); // Interrompo il thread che gestisce la chat
             System.out.println("Sezione " + this.sectionNumberInEditing + " del documento " + this.documentNameInEditng + " aggiornata con successo");
             this.documentNameInEditng = null;
             this.sectionNumberInEditing = null;
@@ -251,15 +251,15 @@ public class Client {
         b.setDocumentName(documentName);
         b.setSectionNumber(sectionNumber);
 
-        Communication.send(this.socketChannel, new Packet(new Header(OPS.EDIT), b));
-        Packet pkt = Communication.read(this.socketChannel);
+        Communication.send(this.socketChannel, new Packet(new Header(OPS.EDIT), b)); // Invio la richiesta
+        Packet pkt = Communication.read(this.socketChannel); // Attendo la risposta
         if(pkt.getHeader().getOp() == OPS.OK){
             this.state = STATE.EDIT;
             this.documentNameInEditng = documentName;
             this.sectionNumberInEditing = sectionNumber;
             this.inEditing = new File(String.valueOf(Paths.get(this.basePath.toString(), documentName + sectionNumber + ".txt")));
-            Communication.read(socketChannel, this.inEditing, pkt.getBody().getBytesNumber());
-            this.ch = new ChatHandler(this.currentUser.getUsername(), Integer.parseInt(pkt.getBody().getOther()));
+            Communication.read(socketChannel, this.inEditing, pkt.getBody().getBytesNumber()); // Leggo la sezione che voglio modificare
+            this.ch = new ChatHandler(this.currentUser.getUsername(), Integer.parseInt(pkt.getBody().getOther())); // Avvio il thread che gestisce la chat
             this.ch.start();
             System.out.println("Sezione " + sectionNumber + " del documento " + documentName + " scaricata con successo");
         }else System.out.println("Errore: " + printError(pkt.getHeader().getOp()));
@@ -273,7 +273,7 @@ public class Client {
 
         if(pkt.getHeader().getOp() == OPS.OK){
             ArrayList<ListMember> list = new Gson().fromJson(pkt.getBody().getOther(), new TypeToken<ArrayList<ListMember>>(){}.getType());
-            for(ListMember m: list){
+            for(ListMember m: list){ // Stampo tutta la lista
                 System.out.println(m.getDocumentName() + ": ");
                 System.out.println("  Creatore: " + m.getOwner());
                 Iterator i = m.getCollaborators().iterator();
@@ -292,7 +292,7 @@ public class Client {
         UsersService usersServer;
         try {
             usersServer = (UsersService) r.lookup("UsersService");
-            usersServer.register(new User(user, pw));
+            usersServer.register(new User(user, pw)); // Chiamo la register dell'oggetto remoto
             System.out.println("Registrazione eseguita con successo.");
         } catch (UsernameAlreadyRegistered ex) {
             System.out.println("Username già utilizzato da un altro utente");
@@ -308,7 +308,7 @@ public class Client {
         try {
             // Login RMI -> ovvero controllo se posso fare il login
             usersServer = (UsersService) r.lookup("UsersService");
-            usersServer.login(user, pw); // Provo a fare il login. Se c'è un errore entro nei catch, altrimenti mi connetto con il server
+            usersServer.login(user, pw); // Provo a fare il login. Se c'è un errore entro nei catch, altrimenti mi connetto al server
             System.out.println("Login eseguito con successo.");
             /*
                Se posso fare il login allora instauro la connessione -> 2 connessioni, una per le richieste
@@ -332,11 +332,11 @@ public class Client {
             invitationChannel.connect(invitationAddress);
             Body b = new Body();
             b.setUsername(user);
-            Communication.send(invitationChannel, new Packet(new Header(OPS.CREATEASSOCIATION), b));
+            Communication.send(invitationChannel, new Packet(new Header(OPS.CREATEASSOCIATION), b)); // Invio un messaggio per comunicare al server il SocketChannel su cui voglio ricevere gli inviti
             if(Communication.read(invitationChannel).getHeader().getOp() == OPS.OK){
                 this.ih = new InviteHandler(invitationChannel);
-                ih.start();
-                this.state = STATE.LOGGED;
+                ih.start(); // Avvio il thread degli inviti
+                this.state = STATE.LOGGED; // Cambio stato
             } else {
                 this.socketChannel.finishConnect();
                 invitationChannel.finishConnect();
@@ -359,10 +359,10 @@ public class Client {
         UsersService usersServer;
         try {
             usersServer = (UsersService) r.lookup("UsersService");
-            usersServer.logout(this.currentUser.getUsername());
+            usersServer.logout(this.currentUser.getUsername()); // Chiamo il metodo logout() dell'oggetto remoto
             this.currentUser = null;
-            this.state = STATE.STARTED;
-            this.ih.interrupt();
+            this.state = STATE.STARTED; // Cambio stato
+            this.ih.interrupt(); // Interrompo in thread degli inviti
             System.out.println("Logout eseguito con successo.");
         }catch (NotBoundException | RemoteException ex) {
             System.out.println("Si è verificato un errore. Riprova.");
@@ -454,7 +454,7 @@ public class Client {
         System.out.println("  receive                          visualizza i msg ricevuti sulla chat");
     }
 
-    public enum STATE{
+    public enum STATE{ // enum per codificare i tre possibili stati del client
         STARTED,
         LOGGED,
         EDIT
