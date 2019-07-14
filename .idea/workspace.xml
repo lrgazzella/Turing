@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02d1ab80-e8aa-4c30-a1a7-1b4a308ff780" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/turing/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/turing/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/turing/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,10 +13,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/turing/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="-51">
               <caret line="361" column="83" selection-start-line="361" selection-start-column="79" selection-end-line="361" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -28,7 +27,6 @@
                 <element signature="method#handleEndEdit#0;class#Client#0" />
                 <element signature="method#handleEdit#0;class#Client#0" />
                 <element signature="method#handleList#0;class#Client#0" />
-                <element signature="e#10487#11174#1" />
                 <element signature="method#handleRegister#0;class#Client#0" />
                 <element signature="method#handleLogin#0;class#Client#0" />
                 <element signature="method#handleCreate#0;class#Client#0" />
@@ -45,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/turing/Document.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+            <state relative-caret-position="400">
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,28 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/turing/Server.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/turing/Section.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="98" column="220" selection-start-line="98" selection-start-column="220" selection-end-line="98" selection-end-column="220" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#main#0;class#Server#0" />
-                <element signature="method#Server#0;class#Server#0" />
-                <element signature="method#handleRequest#0;class#Server#0" />
-                <element signature="method#handleEndEdit#0;class#Server#0" />
-                <element signature="method#handleEdit#0;class#Server#0" />
-                <element signature="method#handleList#0;class#Server#0" />
-                <element signature="method#buildListString#0;class#Server#0" />
-                <element signature="method#handleShare#0;class#Server#0" />
-                <element signature="method#handleCreate#0;class#Server#0" />
-                <element signature="method#handleShowDoc#0;class#Server#0" />
-                <element signature="method#handleShowSec#0;class#Server#0" />
-                <element signature="method#getSectionsInEditing#0;class#Server#0" />
-                <element signature="method#joinFiles#0;class#Server#0" />
-                <element signature="method#deleteFolder#0;class#Server#0" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -93,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleC</find>
-      <find>han</find>
       <find>num</find>
       <find>numSections</find>
       <find>Header inviato</find>
@@ -123,6 +102,8 @@
       <find>getSectionsInEditing</find>
       <find>printError</find>
       <find>todo</find>
+      <find>associa</find>
+      <find>request</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,6 +177,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,14 +201,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561966055584" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561966184944" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -256,7 +237,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="turing.Client" />
       <module name="TURING" />
@@ -279,8 +260,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -317,12 +298,14 @@
       <workItem from="1561711155726" duration="599000" />
       <workItem from="1561713460026" duration="5093000" />
       <workItem from="1561837509504" duration="3917000" />
-      <workItem from="1561963003257" duration="3046000" />
+      <workItem from="1561963003257" duration="3179000" />
+      <workItem from="1561967087920" duration="548000" />
+      <workItem from="1562660826562" duration="1498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152857000" />
+    <option name="totallyTimeSpent" value="155036000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,7 +320,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23827533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24583964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -346,7 +329,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.2667758" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.7512275" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -604,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/turing/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -618,51 +594,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="361" column="83" selection-start-line="361" selection-start-column="79" selection-end-line="361" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Client#0" />
-            <element signature="method#Client#0;class#Client#0" />
-            <element signature="method#startClient#0;class#Client#0" />
-            <element signature="method#handleCommand#0;class#Client#0" />
-            <element signature="method#handleEndEdit#0;class#Client#0" />
-            <element signature="method#handleEdit#0;class#Client#0" />
-            <element signature="method#handleList#0;class#Client#0" />
-            <element signature="e#10487#11174#1" />
-            <element signature="method#handleRegister#0;class#Client#0" />
-            <element signature="method#handleLogin#0;class#Client#0" />
-            <element signature="method#handleCreate#0;class#Client#0" />
-            <element signature="method#handleShare#0;class#Client#0" />
-            <element signature="method#handleShowSec#0;class#Client#0" />
-            <element signature="method#handleShowDoc#0;class#Client#0" />
-            <element signature="method#usage#0;class#Client#0" />
-            <element signature="class#STATE#0;class#Client#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/turing/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/turing/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="98" column="220" selection-start-line="98" selection-start-column="220" selection-end-line="98" selection-end-column="220" />
+        <state relative-caret-position="-522">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Server#0" />
             <element signature="method#Server#0;class#Server#0" />
-            <element signature="method#handleRequest#0;class#Server#0" />
             <element signature="method#handleEndEdit#0;class#Server#0" />
             <element signature="method#handleEdit#0;class#Server#0" />
             <element signature="method#handleList#0;class#Server#0" />
@@ -674,6 +613,48 @@
             <element signature="method#getSectionsInEditing#0;class#Server#0" />
             <element signature="method#joinFiles#0;class#Server#0" />
             <element signature="method#deleteFolder#0;class#Server#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/turing/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="361" column="83" selection-start-line="361" selection-start-column="79" selection-end-line="361" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#Client#0" />
+            <element signature="method#Client#0;class#Client#0" />
+            <element signature="method#startClient#0;class#Client#0" />
+            <element signature="method#handleCommand#0;class#Client#0" />
+            <element signature="method#handleEndEdit#0;class#Client#0" />
+            <element signature="method#handleEdit#0;class#Client#0" />
+            <element signature="method#handleList#0;class#Client#0" />
+            <element signature="method#handleRegister#0;class#Client#0" />
+            <element signature="method#handleLogin#0;class#Client#0" />
+            <element signature="method#handleCreate#0;class#Client#0" />
+            <element signature="method#handleShare#0;class#Client#0" />
+            <element signature="method#handleShowSec#0;class#Client#0" />
+            <element signature="method#handleShowDoc#0;class#Client#0" />
+            <element signature="method#usage#0;class#Client#0" />
+            <element signature="class#STATE#0;class#Client#0" />
           </folding>
         </state>
       </provider>
